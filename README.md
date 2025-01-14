@@ -2,6 +2,7 @@
 Website to create formula sheets using AI and browse formula sheets others have made.
 
 **TO-DO List:**
+
 *Early stuff*
 - Make some mock data (to test with and to display as examples)
 - Make search bar work
