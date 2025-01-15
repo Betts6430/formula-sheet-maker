@@ -1,142 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formula Sheet Hub</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-
-        header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .create-button {
-            background-color: #4263eb;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .create-button:hover {
-            background-color: #3651c8;
-        }
-
-        .search-bar {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            font-size: 16px;
-        }
-
-        .search-bar button {
-            background-color: #4263eb;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .search-bar button:hover {
-            background-color: #3651c8;
-        }
-
-        .section-title {
-            font-size: 18px;
-            margin: 20px 0 10px;
-        }
-
-        .formula-sheets {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .formula-sheet {
-            background-color: #1e1e1e;
-            border-radius: 5px;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .formula-sheet h3 {
-            margin: 0;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .formula-sheet p {
-            margin: 0;
-            font-size: 14px;
-            color: #bbbbbb;
-        }
-
-        .see-more {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .see-more a {
-            color: #4263eb;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .see-more a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🧪 Formula Sheet Hub</h1>
-            <button class="create-button">+ Create a formula sheet</button>
+            <button class="create-button" id="create-btn">+ Create a formula sheet</button>
         </header>
 
         <div class="search-bar">
-            <input type="text" placeholder="Search for formula sheets...">
-            <button>🔍</button>
+            <input type="text" id="search-input" placeholder="Search for formula sheets...">
+            <button id="search-btn">🔍</button>
         </div>
 
         <section>
             <h2 class="section-title">Your Formula Sheets</h2>
-            <div class="formula-sheets">
+            <div class="formula-sheets" id="formula-container">
                 <div class="formula-sheet">
                     <h3>MATH 201</h3>
                     <p>Integrals, derivatives, etc.</p>
@@ -149,32 +31,21 @@
                     <h3>Python Cheatsheet</h3>
                     <p>Functions, methods, etc.</p>
                 </div>
-                <div class="formula-sheet">
-                    <h3>Blah blah</h3>
-                    <p>Blah blah blah</p>
-                </div>
-                <div class="formula-sheet">
-                    <h3>Blah blah</h3>
-                    <p>Blah blah blah</p>
-                </div>
-                <div class="formula-sheet">
-                    <h3>Blah blah</h3>
-                    <p>Blah blah blah</p>
-                </div>
-                <div class="formula-sheet">
-                    <h3>Blah blah</h3>
-                    <p>Blah blah blah</p>
-                </div>
-            </div>
-            <div class="see-more">
-                <a href="#">See More</a>
             </div>
         </section>
 
-        <section>
-            <h2 class="section-title">Community Formula Sheets</h2>
-            <!-- Placeholder for community formula sheets -->
-        </section>
+        <!-- Form Modal (Initially Hidden) -->
+        <div id="form-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Create a Formula Sheet</h2>
+                <input type="text" id="sheet-title" placeholder="Enter title">
+                <textarea id="sheet-content" placeholder="Enter description"></textarea>
+                <button id="add-sheet">Add Sheet</button>
+            </div>
+        </div>
+
     </div>
+
+    <script src="script.js"></script>
 </body>
-</html>
